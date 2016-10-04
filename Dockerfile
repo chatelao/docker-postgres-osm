@@ -5,9 +5,12 @@ FROM postgres:9.3.6
 MAINTAINER James Badger <james@jamesbadger.ca>
 
 ENV DEBIAN_FRONTEND noninteractive
+# https://de.wikipedia.org/wiki/PostgreSQL
 ENV PG_MAJOR 9.3
+# https://de.wikipedia.org/wiki/PostGIS
+ENV PGPG_MAJOR 2.1
 
-RUN apt-get update && apt-get install -y -q postgresql-${PG_MAJOR}-postgis-2.1 postgresql-contrib postgresql-server-dev-${PG_MAJOR}
+RUN apt-get update && apt-get install -y -q squid-deb-proxy-client postgresql-${PG_MAJOR}-postgis-${PGPG_MAJOR} postgresql-contrib postgresql-server-dev-${PG_MAJOR}
 
 ENV OSM_USER osm
 ENV OSM_DB gis
