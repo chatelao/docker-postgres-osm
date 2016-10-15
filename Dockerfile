@@ -10,7 +10,7 @@ ENV PG_MAJOR 9.3
 # https://de.wikipedia.org/wiki/PostGIS
 ENV PGPG_MAJOR 2.1
 
-RUN apt-get install -y -q squid-deb-proxy-client
+# RUN apt-get install -y -q squid-deb-proxy-client
 RUN apt-get update && apt-get install -y -q postgresql-${PG_MAJOR}-postgis-${PGPG_MAJOR} postgresql-contrib postgresql-server-dev-${PG_MAJOR}
 
 ENV OSM_USER osm
