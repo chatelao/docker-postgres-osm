@@ -15,6 +15,8 @@ RUN apt-get update && apt-get install -y -q postgresql-${PG_MAJOR}-postgis-${PGP
 
 ENV OSM_USER osm
 ENV OSM_DB gis
+# OpenTopoMap database
+ENV OTO_DB lowzoom
 
 RUN mkdir -p /docker-entrypoint-initdb.d
 ADD ./postgres-entry.sh /docker-entrypoint-initdb.d/postgres-entry.sh
