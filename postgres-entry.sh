@@ -7,10 +7,12 @@ EOL
 
 gosu postgres postgres --single -jE <<-EOL
   CREATE DATABASE "$OSM_DB";
+  CREATE DATABASE "$OTO_DB";
 EOL
 
 gosu postgres postgres --single -jE <<-EOL
   GRANT ALL ON DATABASE "$OSM_DB" TO "$OSM_USER";
+  GRANT ALL ON DATABASE "$OTO_DB" TO "$OSM_USER";
 EOL
 
 # Postgis extension cannot be created in single user mode.
@@ -22,7 +24,14 @@ gosu postgres pg_ctl -w start
 gosu postgres psql "$OSM_DB" <<-EOL
   CREATE EXTENSION postgis;
   CREATE EXTENSION hstore;
+	CREATE EXTENSION dblink;
   ALTER TABLE geometry_columns OWNER TO "$OSM_USER";
   ALTER TABLE spatial_ref_sys OWNER TO "$OSM_USER";
+EOL
+
+gosu postgres psql "$OTO_DB" <<-EOL
+  CREATE EXTENSION postgis;
+  CREATE EXTENSION hstore;
+	CREATE EXTENSION dblink;
 EOL
 gosu postgres pg_ctl stop
