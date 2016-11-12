@@ -1,7 +1,7 @@
 # DOCKER-VERSION 1.5.0
 # VERSION 0.2
 
-FROM postgres:9.3.6
+FROM postgres:9.6.0
 MAINTAINER James Badger <james@jamesbadger.ca>
 
 ENV DEBIAN_FRONTEND noninteractive
