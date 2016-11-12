@@ -6,9 +6,9 @@ MAINTAINER James Badger <james@jamesbadger.ca>
 
 ENV DEBIAN_FRONTEND noninteractive
 # https://de.wikipedia.org/wiki/PostgreSQL
-ENV PG_MAJOR 9.3
+ENV PG_MAJOR 9.6
 # https://de.wikipedia.org/wiki/PostGIS
-ENV PGPG_MAJOR 2.1
+ENV PGPG_MAJOR 2.3
 
 # RUN apt-get install -y -q squid-deb-proxy-client
 RUN apt-get update && apt-get install -y -q postgresql-${PG_MAJOR}-postgis-${PGPG_MAJOR} postgresql-contrib postgresql-server-dev-${PG_MAJOR}
