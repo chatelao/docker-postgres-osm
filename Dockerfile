@@ -2,7 +2,7 @@
 # VERSION 0.2
 
 FROM postgres:9.6.0
-MAINTAINER James Badger <james@jamesbadger.ca>
+MAINTAINER Olivier Chatelain <olivier.chatelain@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 # https://de.wikipedia.org/wiki/PostgreSQL
