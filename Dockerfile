@@ -11,7 +11,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV PGPG_MAJOR 2.1
 
 RUN apt-get update && apt-get install -y -q \
-        postgresql-${PG_MAJOR}-postgis-${PGPG_MAJOR} 
+        postgresql-${PG_MAJOR}-postgis-${PGPG_MAJOR} \
         postgresql-server-dev-${PG_MAJOR}=$PG_VERSION
 # postgresql-contrib # already installed
 
