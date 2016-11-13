@@ -3,14 +3,10 @@ set -e
 
 gosu postgres postgres --single -jE <<-EOL
   CREATE USER "$OSM_USER";
-EOL
 
-gosu postgres postgres --single -jE <<-EOL
   CREATE DATABASE "$OSM_DB";
   CREATE DATABASE "$OTO_DB";
-EOL
 
-gosu postgres postgres --single -jE <<-EOL
   GRANT ALL ON DATABASE "$OSM_DB" TO "$OSM_USER";
   GRANT ALL ON DATABASE "$OTO_DB" TO "$OSM_USER";
 EOL
