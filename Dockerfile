@@ -17,7 +17,7 @@ ENV OSM_USER osm
 ENV OSM_DB gis
 # OpenTopoMap database
 ENV OTOL_DB lowzoom
-ENV OTOC_DB lowzoom
+ENV OTOC_DB contours
 
 RUN mkdir -p /docker-entrypoint-initdb.d
 ADD ./postgres-entry.sh /docker-entrypoint-initdb.d/postgres-entry.sh
