@@ -2,6 +2,7 @@
 set -e
 
 # gosu postgres postgres --single -jE <<-EOL
+gosu postgres pg_ctl -w start
 gosu postgres psql <<-EOL
   CREATE USER "$OSM_USER";
 
@@ -19,7 +20,6 @@ EOL
 # updating the DB, then shutting down the server so the
 # rest of the docker-postgres init scripts can finish.
 
-# gosu postgres pg_ctl -w start
 gosu postgres psql "$OSM_DB" <<-EOL
   CREATE EXTENSION postgis;
   CREATE EXTENSION hstore;
@@ -33,4 +33,4 @@ gosu postgres psql "$OTO_DB" <<-EOL
   CREATE EXTENSION hstore;
   CREATE EXTENSION dblink;
 EOL
-# gosu postgres pg_ctl stop
+gosu postgres pg_ctl stop
