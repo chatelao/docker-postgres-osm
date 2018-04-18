@@ -7,6 +7,6 @@ before_install:
   - echo "ENV GIT_SHA ${TRAVIS_COMMIT}" >> Dockerfile
 install:
   - docker build -t chatelao/docker-postgres-osm .
-  - docker run
+  - docker run chatelao/docker-postgres-osm
 script:
   - psql --version
