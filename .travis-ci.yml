@@ -1,15 +1,11 @@
 sudo: required
 services:
   - docker
-
 # Doku.: https://giorgos.sealabs.net/build-and-test-against-docker-images-in-travis.html
-
 before_install:
   - docker --version
   - echo "ENV GIT_SHA ${TRAVIS_COMMIT}" >> Dockerfile
-
 install:
   - docker build . || true
-
 script:
   - cat 'hello world' || true
