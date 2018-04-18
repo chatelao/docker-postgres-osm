@@ -1,7 +1,7 @@
 # DOCKER-VERSION 1.5.0
 # VERSION 0.2
 
-FROM postgres:9.3.6
+FROM postgres:9.6.8
 MAINTAINER Olivier Chatelain <olivier.chatelain@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
