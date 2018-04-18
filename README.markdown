@@ -1,4 +1,4 @@
-# docker-postgres-osm
+# docker-postgres-osm [![Build Status](https://travis-ci.org/chatelao/docker-postgres-osm.svg?branch=master)]
 
 The base postgres image from Docker with extensions for importing OpenStreetMap data.
 
