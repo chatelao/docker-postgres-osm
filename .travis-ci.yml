@@ -5,5 +5,4 @@ services:
 
 script:
   - docker build .
-  - bundle exec rake test
-  
+
