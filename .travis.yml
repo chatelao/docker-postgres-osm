@@ -10,4 +10,4 @@ install:
   - docker build -t chatelao/docker-postgres-osm .
 script:
   - docker run -d --name postgres-osm chatelao/docker-postgres-osm
-  - docker run -it --rm --link postgres-osm:pg chatelao/docker-postgres-osm psql -h docker -U docker
+  - docker run -it --rm --link postgres-osm:pg --entrypoint /bin/bash postgres:9.3.6 -c 'psql -h $PG_PORT_5432_TCP_ADDR -p $PG_PORT_5432_TCP_PORT -U postgres postgres'
