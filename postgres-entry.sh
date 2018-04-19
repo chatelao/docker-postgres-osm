@@ -2,8 +2,9 @@
 set -e
 
 # gosu postgres postgres --single -jE <<-EOL
-gosu postgres pg_ctl -w start
-gosu postgres psql <<-EOL
+# gosu postgres pg_ctl -w start
+# gosu postgres 
+psql <<-EOL
   CREATE USER "$OSM_USER";
 
   CREATE DATABASE "$OSM_DB";
@@ -20,7 +21,8 @@ EOL
 # updating the DB, then shutting down the server so the
 # rest of the docker-postgres init scripts can finish.
 
-gosu postgres psql "$OSM_DB" <<-EOL
+# gosu postgres 
+psql "$OSM_DB" <<-EOL
   CREATE EXTENSION postgis;
   CREATE EXTENSION hstore;
   CREATE EXTENSION dblink;
@@ -28,7 +30,8 @@ gosu postgres psql "$OSM_DB" <<-EOL
   ALTER TABLE spatial_ref_sys OWNER TO "$OSM_USER";
 EOL
 
-gosu postgres psql "$OTO_DB" <<-EOL
+# gosu postgres 
+psql "$OTO_DB" <<-EOL
   CREATE EXTENSION postgis;
   CREATE EXTENSION hstore;
   CREATE EXTENSION dblink;
