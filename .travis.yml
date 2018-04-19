@@ -9,4 +9,4 @@ install:
   - docker build -t chatelao/docker-postgres-osm .
   - docker run chatelao/docker-postgres-osm
 script:
-  - docker run -it --rm --link some-postgres:postgres %%IMAGE%% psql -h postgres -U postgres
+  - docker run -it --rm --link some-postgres:postgres chatelao/docker-postgres-osm psql -h postgres -U postgres
