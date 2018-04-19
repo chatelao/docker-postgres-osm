@@ -1,8 +1,12 @@
 #!/bin/bash
 set -e
 
-# gosu postgres postgres --single -jE <<-EOL
-# gosu postgres pg_ctl -w start
+# gosu postgres 
+postgres --single -jE <<-EOL
+
+# gosu postgres 
+pg_ctl -w start
+
 # gosu postgres 
 psql <<-EOL
   CREATE USER "$OSM_USER";
