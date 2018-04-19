@@ -36,4 +36,5 @@ psql "$OTO_DB" <<-EOL
   CREATE EXTENSION hstore;
   CREATE EXTENSION dblink;
 EOL
-gosu postgres pg_ctl stop
+# gosu postgres 
+pg_ctl stop
