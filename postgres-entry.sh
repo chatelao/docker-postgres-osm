@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+exit
+
 # gosu postgres 
 postgres --single -jE <<-EOL
 
